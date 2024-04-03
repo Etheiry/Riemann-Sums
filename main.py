@@ -17,14 +17,28 @@ import math
 """
 def main():
 
-    function1 = Riemann("pow(x,2)-4*x", -1, 59)                     # function, lowerBound, upperBound, subIntervals
+    option = int(input("summation(1) or Riemann(2): "))
+                   
 
-    #function1.Sums()                                              # Regular summation            
-    function1.Table()                                              # individual f(x) values
-    print(f"Left Riemann: {function1.Left_Riemann()}")             # Left Riemann sum 
-    print(f"Right Riemann: {function1.Right_Riemann()}")           # Right Riemann sum 
-    print(f"Trapezoid: {function1.Trapezoid()}")                   # Trapezoid Riemann sum
+    if option == 1:
+        exp = input("f(x): ")
+        l = input("a: ")
+        u = input("b: ")
+        function1 = Riemann(exp, int(l), int(u)) 
+        function1.Sums()
+    elif option == 2:        
+        exp = input("f(x): ")
+        l = input("a: ")
+        u = input("b: ")
+        sub = input("sub intervals: ")
+        function1 = Riemann(exp, int(l), int(u), int(sub))   
+                                                                       # Regular summation            
+        function1.Table()                                              # individual f(x) values
+        print(f"Left Riemann: {function1.Left_Riemann()}")             # Left Riemann sum 
+        print(f"Right Riemann: {function1.Right_Riemann()}")           # Right Riemann sum 
+        print(f"Trapezoid: {function1.Trapezoid()}")                   # Trapezoid Riemann sum
 
+    print()
 
 
 class Riemann:
@@ -98,6 +112,6 @@ class Riemann:
 
 
 if __name__ == "__main__":
-    main()
-
+    while(True):
+        main()
 
